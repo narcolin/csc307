@@ -11,7 +11,7 @@ function TableHeader() {
       </thead>
     );
 }
-  
+
 function TableBody(props) {
   const rows = props.characterData.map((row, index) => {
     return (
