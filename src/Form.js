@@ -4,21 +4,9 @@ import React, {useState} from 'react';
 function Form(props) {
   const [person, setPerson] = useState(
      {
-        name: "Charlie",
-        job: "Janitor",
-     },
-     {
-        name: "Mac",
-        job: "Bouncer",
-      },
-      {
-        name: "Dee",
-        job: "Aspring actress",
-      },
-      {
-        name: "Dennis",
-        job: "Bartender",
-      },
+        name: "",
+        job: "",
+     }
   );
 
   function handleChange(event) {
