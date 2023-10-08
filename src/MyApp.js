@@ -26,7 +26,7 @@ function MyApp() {
 
 	async function removeOneCharacter (index) {
     const userid = characters[index].id;
-    const response = await axios.delete('http://localhost:5001/users/'+userid); 
+    const response = await axios.delete('http://localhost:8000/users/'+userid); 
     if(response && response.status === 204){
       console.log('Deleted.');
    }
@@ -39,8 +39,7 @@ function MyApp() {
   function updateList(person) { 
     makePostCall(person).then( result => {
       if (result && result.status === 201) {
-        person = result.data;
-        setCharacters([...characters, person] );
+        setCharacters([...characters, result.data] );
       }});
     }
 
@@ -58,11 +57,10 @@ function MyApp() {
 
   return (
     <div className="container">
-        <Table characterData={characters} 
-          removeCharacter={removeOneCharacter} />
+        <Table characterData={characters} removeCharacter={removeOneCharacter} />
         <Form handleSubmit={updateList} />
     </div>  
-  )
+  );
 }
 
 export default MyApp;
